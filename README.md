@@ -10,3 +10,6 @@ Advantage:
 * Support log to file
 * Support log level filter
 * Support LOG($LEVEL, ""...) and LOG_$LEVEL(""...) both method
+
+
+* Support roll back file log
