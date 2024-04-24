@@ -6,7 +6,9 @@
 #include <stdarg.h>
 #include "log.h"
 
-static char curr_time[32];
+#define TIME_LEN 64
+
+static char curr_time[TIME_LEN];
 static int  log2screen = 1;
 static int  log2file;
 static char log_file_name[128];
@@ -37,9 +39,9 @@ static char *print_time()
     gettimeofday(&tv, NULL);
     now = tv.tv_sec;
     nowtm = localtime(&now);
-    char timebuf[32];
-    strftime(timebuf, 32, "%Y-%m-%d %H:%M:%S", nowtm);
-    snprintf(curr_time, 32, "%s %06ld",timebuf, (long)tv.tv_usec);
+    char timebuf[TIME_LEN];
+    strftime(timebuf, TIME_LEN, "%Y-%m-%d %H:%M:%S", nowtm);
+    snprintf(curr_time, TIME_LEN + 32, "%s %06ld",timebuf, (long)tv.tv_usec);
     return curr_time;
 }
 
